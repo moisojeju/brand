@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모이소 - 브랜드 소개</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: #f9f9f9;
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 10px 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .navbar .logo a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #555;
+            margin-left: 20px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #e67e22;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/seed/jeju-hero/1200/400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        .section {
+            background-color: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .section-with-image {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .section-with-image .image-content {
+            flex: 1 1 40%;
+        }
+
+        .section-with-image .text-content {
+            flex: 1 1 60%;
+        }
+        
+        .section-with-image.image-right .image-content {
+            order: 2;
+        }
+        
+        .section-with-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .section p, .section li {
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 400;
+            word-break: keep-all;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .grid-item h4 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .grid-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .map-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background-color: #03C75A; /* Naver Green */
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .map-button:hover {
+            background-color: #02b050;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #ccc;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none; /* Hide on mobile for simplicity, can be replaced with a burger menu */
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section h2 {
+                font-size: 1.8rem;
+            }
+            .section h3 {
+                font-size: 1.3rem;
+            }
+            .section-with-image {
+                flex-direction: column;
+            }
+            .section-with-image.image-right .image-content {
+                order: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo"><a href="index.html">모이소 □○△</a></div>
+        <div class="nav-links">
+            <a href="#introduction">모이소 소개</a>
+            <a href="#spaces">공간소개</a>
+            <a href="#projects">프로젝트</a>
+            <a href="#location">오시는 길</a>
+            <a href="https://smartstore.naver.com/jejumoiso" target="_blank">쇼핑몰</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <h1>제주감성 다 모여있소! □○△</h1>
+            <p>제주공항에서 차로 5분 거리, 감각적인 예술 작가들이 만든 독특한 소품과 이야기가 넘치는 공간, 모이소를 만나보세요.</p>
+        </header>
+
+        <main>
+            <section id="introduction" class="section">
+                <h2>모이소 소개</h2>
+                <div class="section-with-image">
+                    <div class="text-content">
+                        <h3>제주의 특별함</h3>
+                        <p>"제주도 특별한 거 머이서?"라는 호기심에서 시작된 모이소는 제주 특유의 감성과 스토리가 담긴 다양한 제품으로, 여행자와 지역민 모두에게 특별한 추억과 만족을 선사합니다.</p>
+                        <h3>독특한 공간</h3>
+                        <p>감각적인 예술 작가들이 만든 독특한 소품과 이야기가 넘치는 공간, 모이소에서 제주의 매력을 경험해보세요.</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="https://picsum.photos/seed/jeju-store/600/400" alt="모이소 소품샵">
+                    </div>
+                </div>
+            </section>
+            
+            <section id="spaces" class="section">
+                <h2>공간소개</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <img src="https://picsum.photos/seed/souvenir-shop/400/300" alt="소품샵">
+                        <h4>소품샵</h4>
+                        <p>"새롭고 즐거운 볼거리, 재주꾼들의 창의적인 작품이 어우러진 공간"</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://picsum.photos/seed/postcard-making/400/300" alt="엽서체험장">
+                        <h4>엽서체험장</h4>
+                        <p>"나만의 작품, 세상에 하나뿐인 엽서를 만들어보세요"</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://picsum.photos/seed/gift-wrapping/400/300" alt="셀프포장">
+                        <h4>셀프포장</h4>
+                        <p>"창작과 포장의 즐거움을 함께하는 셀프포장공간"</p>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://picsum.photos/seed/photo-zone/400/300" alt="포토존">
+                        <h4>포토존</h4>
+                        <p>"창작과 추억을 담은 멋진 포토존"</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section">
+                <h2>프로젝트와 활동</h2>
+                <div class="section-with-image">
+                    <div class="text-content">
+                        <h3>모이장 & 청년 플리마켓</h3>
+                        <p>외국인 셀러와 함께하는 글로벌 플리마켓 '모이장', 청년 대학생들의 창작과 발돋움을 위한 '청년 플리마켓'을 개최하여 새로운 문화 교류와 기회의 장을 만듭니다.</p>
+                    </div>
+                    
+                    <div class="image-content">
+                        <img src="https://picsum.photos/seed/flea-market/600/400" alt="플리마켓">
+                    </div>
+                </div>
+                <iframe width="1316" height="740" src="https://www.youtube.com/embed/V5Tv2avSZ4E?list=PLxJe1HWJSlnCa2bFUxu8w0lc9cT2Vjeza" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                 <div class="section-with-image image-right">
+                    <div class="text-content">
+                        <h3>청년작가육성</h3>
+                        <p>"누구나 작가가 될 수 있다"는 모토 아래, 멘토링, 원데이클래스, 전시/판매 지원을 통해 신진 작가들이 전문 작가로 성장할 수 있도록 돕습니다.</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="https://picsum.photos/seed/craft-workshop/600/400" alt="공방">
+                    </div>
+                </div>
+                <iframe width="1316" height="740" src="https://www.youtube.com/embed/9vNRcrXybsk?list=PLxJe1HWJSlnA8se9noJk5fZF7yQW4VueJ" title="&#39;인테리어 소품 나도 만들수 있다&#39; 제주 마크라메 만들기 원데이클래스" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+            
+            <section id="location" class="section">
+                 <h2>오시는 길</h2>
+                 <div class="section-with-image">
+                    <div class="text-content">
+                        <p>
+                            <strong>주소:</strong> <a href="https://map.naver.com/p/entry/place/1886833493" target="_blank" style="color: #333; text-decoration: none;">제주특별자치도 제주시 연동 262-51</a><br>
+                            <strong>주차:</strong> 건물 앞 주차 가능 (주차 안내 요원 상시 대기)<br>
+                            <strong>영업시간:</strong> 매일 10:00 ~ 20:00 (연중무휴)
+                        </p>
+                        <a href="https://map.naver.com/p/entry/place/1886833493" target="_blank" class="map-button">네이버 지도에서 보기</a>
+                    </div>
+                    <div class="image-content">
+                        <img src="https://map.naver.com/p/search/%EB%AA%A8%EC%9D%B4%EC%86%8C/place/55384400?c=15.00,0,0,0,dh&placePath=%3Fentry%253Dbmp" alt="오시는 길 지도">
+                        
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <img scr="test/a.png" alt="제주감성다모이소">
+        <div class="container">
+            <h2>Contact & More</h2>
+            <p>전화: 010-2883-9988 | 이메일: jejumoiso@naver.com | <a href="https://www.instagram.com/jejumoiso" target="_blank" style="color: white;">인스타그램</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
